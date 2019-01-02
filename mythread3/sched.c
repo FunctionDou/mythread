@@ -31,6 +31,8 @@ task_struct * sched()
         tid = (tid+1 < TASK_SIZE) ? tid+1 : (tid+1)%TASK_SIZE;
         if(task_table[tid])
         {
+            if(tid == 0)
+                printf("0\n");
             break;
         }
     }
@@ -41,8 +43,7 @@ task_struct * sched()
 // 线程调度
 void schedule()
 {
-    task_struct* next = NULL;
-    next = sched();
+    task_struct* next = sched();
     if(next)
     {
         next->status = THREAD_RUNNING; // 线程被调度时, 将线程状态设置为运行态

@@ -20,12 +20,16 @@ void thread1()
 {
     printf("thread1\n");
     sleep(1);
+    schedule();  // 要调度的话, 每个线程都因该加上
+    printf("thread11\n");
 }
 
 void thread2()
 {
     printf("thread2\n");
     sleep(1);
+    schedule();  // 要调度的话, 每个线程都因该加上
+    printf("thread22\n");
 }
 
 
@@ -33,16 +37,22 @@ int main()
 {
     Pthread_t tid1, tid2;
     pthread_create(&tid1, thread1);
+    printf("create1\n");
     pthread_create(&tid2, thread2);
+    printf("create2\n");
 
     int i = 3;
     while(--i)
     {
         printf("main\n"); 
         sleep(1);
+        schedule();  // main中可加可不加
     }
+    printf("join\n");
     pthread_join(tid1);
+    printf("join1\n");
     pthread_join(tid2);
+    printf("join2\n");
 
     exit(EXIT_SUCCESS);
 }
