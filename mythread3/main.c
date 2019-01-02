@@ -41,8 +41,8 @@ int main()
     pthread_create(&tid2, thread2);
     printf("create2\n");
 
-    int i = 3;
-    while(--i)
+    int i = 2;  // 这里只能最多循环两次
+    while(i--)
     {
         printf("main\n"); 
         sleep(1);
