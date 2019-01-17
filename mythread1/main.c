@@ -61,7 +61,7 @@ int main()
     // 初始 switch_to 函数栈帧
     int n = 1013;
     for(int i = 0; i < 8; i++)
-        thread1[++n] = i;   // 这一句现在要不要都是一样的, 重要的是下面的三句
+        thread1[n++] = i;   // 这一句现在要不要都是一样的, 重要的是下面的三句
 
     // 返回的是 thread_start 的地址
     // thread_start 函数栈帧，刚进入 thread_start 函数的样子 
@@ -80,7 +80,7 @@ int main()
     // 初始 switch_to 函数栈帧
     n = 1013;
     for(int i = 0; i < 8; i++)
-        thread2[++n] = i;   // 这一句现在要不要都是一样的, 重要的是下面的三句
+        thread2[n++] = i;   // 这一句现在要不要都是一样的, 重要的是下面的三句
 
     // 返回的是 thread_start 的地址
     // thread_start 函数栈帧，刚进入 thread_start 函数的样子 

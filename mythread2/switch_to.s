@@ -12,10 +12,10 @@ switch_to:
   // 保存现场 
   push %edi
   push %esi
-  push %ebx
-  push %edx
-  push %ecx
   push %eax
+  push %ebx
+  push %ecx
+  push %edx
 
   pushfl
  
@@ -32,10 +32,10 @@ switch_to:
 
   // 恢复现场 
   popfl
-	popl %eax
 	popl %edx
 	popl %ecx
 	popl %ebx
+	popl %eax
 	popl %esi
 	popl %edi
 
